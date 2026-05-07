@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Respirar Qualidade – 2.ª Avaliação | USF Serra da Lousã</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap');
+
+:root {
+  --background-color: #FAFBFC;
+  --heading-font: "Merriweather", Georgia, serif;
+  --body-font: "Source Sans 3", Helvetica, sans-serif;
+  --base-font-size: 28px;
+  --text-size: 14pt;
+  --h1-size: 30pt;
+  --h2-size: 22pt;
+  --h3-size: 16pt;
+  --primary-color: #1A5F7A;
+  --secondary-color: #6B3FA0;
+  --accent-color: #E8A838;
+  --success-color: #2A7A3B;
+  --warning-color: #C04A1A;
+  --text-color: #1E2A35;
+  --muted-color: #5A6878;
+  --border-color: #C8D8E4;
+  --card-bg: #EEF4F8;
+}
+
+.reveal { font-family: var(--body-font); font-size: var(--base-font-size); background-color: var(--background-color); }
+.reveal h1 { font-family: var(--heading-font); font-size: var(--h1-size); color: var(--primary-color); text-transform: none; line-height: 1.2; margin-bottom: 12px; font-weight: 700; }
+.reveal h2 { font-family: var(--heading-font); font-size: var(--h2-size); color: var(--primary-color); text-transform: none; line-height: 1.2; margin-bottom: 14px; font-weight: 700; border-bottom: 3px solid var(--accent-color); padding-bottom: 6px; }
+.reveal h3 { font-family: var(--body-font); font-size: var(--h3-size); color: var(--secondary-color); text-transform: none; font-weight: 600; margin-bottom: 8px; }
+.reveal p, .reveal li { font-size: var(--text-size); color: var(--text-color); line-height: 1.5; }
+.reveal ul { margin-left: 1.2em; }
+.reveal ul li, .reveal ol li { margin-bottom: 4px; }
+.reveal strong { color: var(--primary-color); font-weight: 700; }
+.reveal .slides section { padding: 30px 48px; text-align: left; box-sizing: border-box; }
+.reveal .slides section.section-divider { padding: 0; text-align: center; display: flex !important; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary-color) 0%, #0E3F54 100%); }
+.reveal .slides section.section-divider h1, .reveal .slides section.section-divider h2 { color: #fff; border-bottom: none; padding-bottom: 0; }
+.reveal .slides section.section-divider p { color: rgba(255,255,255,0.85); }
+.reveal .slides section.title-slide { background: linear-gradient(150deg, #0E3F54 0%, #1A5F7A 60%, #1E7A99 100%); padding: 44px 56px; display: flex !important; flex-direction: column; justify-content: center; }
+.reveal .slides section.title-slide h1 { color: #fff; font-size: 28pt; border-bottom: 3px solid var(--accent-color); padding-bottom: 10px; margin-bottom: 16px; }
+.reveal .slides section.title-slide h2 { color: var(--accent-color); font-size: 16pt; border-bottom: none; font-family: var(--body-font); font-weight: 400; margin-bottom: 24px; }
+.reveal .slides section.title-slide p { color: rgba(255,255,255,0.85); font-size: 12pt; margin-bottom: 3px; }
+.reveal .slides section.title-slide .title-meta { margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.3); }
+.reveal .content { display: flex; flex-direction: column; flex: 1; }
+.info-card { background: var(--card-bg); border-left: 5px solid var(--primary-color); border-radius: 6px; padding: 10px 14px; margin-bottom: 8px; }
+.info-card p { margin: 0; font-size: 13pt; }
+.info-card .label { font-size: 9pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted-color); font-weight: 600; margin-bottom: 2px; }
+.highlight-box { background: #FEF7E8; border: 2px solid var(--accent-color); border-radius: 8px; padding: 12px 16px; margin: 8px 0; }
+.highlight-box p { margin: 0; font-size: 13pt; }
+.alert-box { background: #FDF0EE; border-left: 5px solid var(--warning-color); border-radius: 6px; padding: 10px 14px; margin: 8px 0; }
+.alert-box p { margin: 0; font-size: 12pt; color: #8B3010; }
+.success-box { background: #EDF7F0; border-left: 5px solid var(--success-color); border-radius: 6px; padding: 10px 14px; margin: 8px 0; }
+.success-box p { margin: 0; font-size: 12pt; color: var(--success-color); }
+.secondary-card { background: #F3EDF8; border-left: 5px solid var(--secondary-color); border-radius: 6px; padding: 10px 14px; margin: 8px 0; }
+.secondary-card p { margin: 0; font-size: 12pt; }
+.reveal table { border-collapse: collapse; width: 100%; font-size: 11pt; margin-top: 8px; }
+.reveal table th { background: var(--primary-color); color: #fff; font-weight: 600; padding: 6px 8px; text-align: left; font-size: 10pt; }
+.reveal table td { padding: 5px 8px; border-bottom: 1px solid var(--border-color); color: var(--text-color); font-size: 10pt; }
+.reveal table tr:nth-child(even) td { background: #F0F5F9; }
+.badge { display: inline-block; background: var(--primary-color); color: #fff; border-radius: 4px; padding: 1px 6px; font-size: 9pt; font-weight: 700; margin: 1px 2px; font-family: monospace; }
+.badge-purple { background: var(--secondary-color); }
+.badge-amber { background: var(--accent-color); color: #1E2A35; }
+.badge-green { background: var(--success-color); }
+.badge-red { background: var(--warning-color); }
+.pill { display: inline-block; border-radius: 20px; padding: 2px 10px; font-size: 9pt; font-weight: 700; letter-spacing: 0.03em; }
+.pill-green { background: #D4EFDD; color: var(--success-color); }
+.pill-red { background: #FDDDD8; color: var(--warning-color); }
+.pill-amber { background: #FDF0D0; color: #A0680A; }
+.pill-blue { background: #D8EAF5; color: var(--primary-color); }
+.section-label { display: inline-block; font-size: 8pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--secondary-color); margin-bottom: 4px; font-family: var(--body-font); }
+.editable-field { display: inline-block; background: #FEF7E8; border: 2px dashed var(--accent-color); border-radius: 4px; padding: 2px 10px; color: #8A6010; font-weight: 600; font-size: 12pt; font-style: italic; }
+.reveal .footnote { position: absolute; bottom: 10px; left: 48px; right: 48px; font-size: 8pt; color: var(--muted-color); border-top: 1px solid var(--border-color); padding-top: 4px; }
+.text-lg { font-size: 16pt; }
+.text-xl { font-size: 18pt; }
+.text-muted { color: var(--muted-color); }
+.text-center { text-align: center; }
+
+/* Timeline horizontal */
+.timeline-h { display: flex; align-items: flex-start; gap: 0; width: 100%; position: relative; margin: 12px 0; }
+.timeline-h::before { content: ''; position: absolute; top: 20px; left: 0; right: 0; height: 4px; background: var(--border-color); z-index: 0; }
+.tl-step { flex: 1; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+.tl-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--primary-color); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--primary-color); margin-bottom: 8px; flex-shrink: 0; }
+.tl-dot-accent { background: var(--accent-color); box-shadow: 0 0 0 2px var(--accent-color); }
+.tl-dot-purple { background: var(--secondary-color); box-shadow: 0 0 0 2px var(--secondary-color); }
+.tl-dot-green { background: var(--success-color); box-shadow: 0 0 0 2px var(--success-color); }
+.tl-date { font-size: 8pt; font-weight: 700; color: var(--primary-color); text-align: center; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; line-height: 1.2; }
+.tl-text { font-size: 9pt; text-align: center; color: var(--text-color); line-height: 1.3; padding: 0 4px; }
+.tl-label { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px 8px; margin-top: 4px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ===== SLIDE 1 – TÍTULO ===== -->
+<section id="s01" class="title-slide">
+  <h1>Respirar Qualidade – Diagnóstico e Registo Clínico nas Doenças Respiratórias Crónicas</h1>
+  <h2>2.ª Avaliação da Melhoria Contínua da Qualidade | Maio 2026</h2>
+  <div class="title-meta">
+    <p><i class="fa-solid fa-hospital"></i> &nbsp;<strong style="color:#fff;">USF Serra da Lousã</strong></p>
+    <p><i class="fa-solid fa-user-doctor"></i> &nbsp;Equipa médica da USF Serra da Lousã</p>
+    <p><i class="fa-solid fa-star"></i> &nbsp;Responsáveis: <strong style="color:#fff;">Daniela Macedo Gomes</strong> e <strong style="color:#fff;">Sofia Eiras</strong>, médicas internas de Medicina Geral e Familiar</p>
+    <p style="margin-top:8px; font-size:10pt; color:rgba(255,255,255,0.6);"><i class="fa-regular fa-file-lines"></i> &nbsp;Com base no Protocolo de Melhoria Contínua da Qualidade – Junho 2025</p>
+  </div>
+</section>
+
+<!-- ===== SLIDE 2 – IDENTIFICAÇÃO DO PROJETO ===== -->
+<section id="s02">
+  <p class="section-label"><i class="fa-solid fa-clipboard-list"></i> Identificação do Projeto</p>
+  <h2>Identificação do Projeto</h2>
+  <div class="content">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      <div class="info-card"><p class="label">Unidade de Saúde Familiar</p><p><strong>USF Serra da Lousã</strong></p></div>
+      <div class="info-card"><p class="label">Equipa Responsável</p><p>Equipa médica da USF Serra da Lousã</p></div>
+      <div class="info-card" style="grid-column:span 2;"><p class="label">Responsáveis</p><p><strong>Daniela Macedo Gomes</strong> e <strong>Sofia Eiras</strong> — Médicas internas de Medicina Geral e Familiar</p></div>
+      <div class="info-card"><p class="label">Data de Início</p><p>Junho 2025</p></div>
+      <div class="info-card"><p class="label">Duração estimada da Intervenção</p><p>6 semanas</p></div>
+      <div class="info-card" style="grid-column:span 2; border-left-color:var(--accent-color); background:#FEF7E8;"><p class="label">Enquadramento temporal – Apresentação atual</p><p>Esta apresentação corresponde à <strong>2.ª Avaliação</strong> da iniciativa — Maio 2026, com base nos resultados disponíveis até <strong>Fevereiro de 2026</strong>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 3 – CONTEXTUALIZAÇÃO ===== -->
+<section id="s03">
+  <p class="section-label"><i class="fa-solid fa-magnifying-glass-chart"></i> Contextualização</p>
+  <h2>Contextualização e Justificação</h2>
+  <div class="content">
+    <div class="highlight-box" style="margin-bottom:12px;">
+      <p><i class="fa-solid fa-triangle-exclamation" style="color:var(--accent-color);"></i> &nbsp;A análise interna do desempenho da <strong>USF Serra da Lousã</strong> revelou valores <strong>abaixo do desejado no Indicador 380</strong> — Proporção de adultos com DPOC, Asma ou Bronquite Crónica com diagnóstico ativo nos problemas, em utentes com prescrição de inaladores.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+      <div class="info-card"><p class="label">O que mede o indicador?</p><p>A <strong>qualidade do registo clínico</strong> e a coerência entre a terapêutica respiratória e o diagnóstico registado.</p></div>
+      <div class="info-card"><p class="label">Causa frequente de não cumprimento</p><p><strong>Omissões de diagnóstico</strong> no processo clínico, apesar do quadro clínico justificar a prescrição.</p></div>
+    </div>
+    <div class="secondary-card">
+      <p><i class="fa-solid fa-seedling" style="color:var(--secondary-color);"></i> &nbsp;Este projeto surge para promover uma <strong>melhoria ética e sustentável</strong> no desempenho da unidade, assegurando que os registos clínicos reflitam a realidade assistencial e promovam a qualidade do cuidado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 4 – SITUAÇÃO INICIAL ===== -->
+<section id="s04" style="display:flex; flex-direction:column; height:100%;">
+  <p class="section-label"><i class="fa-solid fa-chart-line"></i> Ponto de Partida</p>
+  <h2>Situação Inicial do Indicador 380</h2>
+  <div class="content" style="flex:1; display:flex; flex-direction:column; min-height:0;">
+    <table style="margin-bottom:10px; font-size:10pt;">
+      <thead><tr><th>Código Indicador</th><th>Designação</th><th>Mês</th><th>Mín. aceite</th><th>Mín. esperado</th><th>Máx. esperado</th><th>Máx. aceite</th><th>Resultado</th><th>Score</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="4" style="font-size:9pt;">2017.380.01 FL</td><td rowspan="4" style="font-size:9pt;">380 – Prop. adultos c/ asma/DPOC/bronq. Cr. com diagn.</td><td>202412</td><td>74</td><td>81</td><td>100</td><td>100</td><td><strong>80,488</strong></td><td>1,854</td></tr>
+        <tr><td>202501</td><td>74</td><td>81</td><td>100</td><td>100</td><td><strong>79,412</strong></td><td>1,546</td></tr>
+        <tr><td>202502</td><td>74</td><td>81</td><td>100</td><td>100</td><td><strong>79,381</strong></td><td>1,538</td></tr>
+        <tr><td>202503</td><td>74</td><td>81</td><td>100</td><td>100</td><td><strong>79,828</strong></td><td>1,665</td></tr>
+      </tbody>
+    </table>
+    <div style="flex:1; position:relative; min-height:160px;">
+      <canvas data-chart="line">
+      <!--
+      {
+        "data": {
+          "labels": ["Dez 2024 (202412)","Jan 2025 (202501)","Fev 2025 (202502)","Mar 2025 (202503)"],
+          "datasets": [
+            {"label":"Resultado Indicador 380 (%)","data":[80.488,79.412,79.381,79.828],"borderColor":"#1A5F7A","backgroundColor":"rgba(26,95,122,0.12)","borderWidth":3,"pointRadius":5,"fill":true,"tension":0.3},
+            {"label":"Mínimo esperado (81%)","data":[81,81,81,81],"borderColor":"#E8A838","borderWidth":2,"borderDash":[6,4],"pointRadius":0,"fill":false}
+          ]
+        },
+        "options":{"maintainAspectRatio":false,"plugins":{"legend":{"position":"bottom","labels":{"font":{"size":10}}}},"scales":{"y":{"min":77,"max":83,"title":{"display":true,"text":"Resultado (%)"}}}}
+      }
+      -->
+      </canvas>
+    </div>
+  </div>
+  <div class="footnote">Valores abaixo do mínimo esperado (81%) em todos os meses analisados. Fonte: MIM@UF / USF Serra da Lousã.</div>
+</section>
+
+<!-- ===== SLIDE 5 – OBJETIVO PRINCIPAL ===== -->
+<section id="s05">
+  <p class="section-label"><i class="fa-solid fa-bullseye"></i> Objetivo Principal</p>
+  <h2>Objetivo Principal</h2>
+  <div class="content" style="justify-content:center;">
+    <div style="background:var(--card-bg); border-left:6px solid var(--primary-color); border-radius:0 8px 8px 0; padding:18px 24px; margin:16px 0;">
+      <p class="text-lg" style="margin:0; color:var(--primary-color); font-weight:600; font-style:normal;">"Melhorar, de forma eficiente e sustentada, a taxa de cumprimento do <strong>Indicador 380</strong> através da validação clínica e correção adequada do registo de diagnósticos respiratórios nos utentes com prescrição de inaladores."</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px;">
+      <div class="info-card" style="text-align:center; padding:14px 10px;"><p style="font-size:20pt; margin:0;">✅</p><p style="font-size:11pt; margin:4px 0 0; font-weight:600;">Eficiente</p></div>
+      <div class="info-card" style="text-align:center; padding:14px 10px;"><p style="font-size:20pt; margin:0;">🌱</p><p style="font-size:11pt; margin:4px 0 0; font-weight:600;">Sustentada</p></div>
+      <div class="info-card" style="text-align:center; padding:14px 10px;"><p style="font-size:20pt; margin:0;">⚕️</p><p style="font-size:11pt; margin:4px 0 0; font-weight:600;">Ética</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 6 – OBJETIVOS SECUNDÁRIOS ===== -->
+<section id="s06">
+  <p class="section-label"><i class="fa-solid fa-list-check"></i> Objetivos Secundários</p>
+  <h2>Objetivos Secundários</h2>
+  <div class="content">
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-code-branch" style="color:var(--primary-color);"></i> &nbsp;<strong>Uniformizar</strong> critérios de codificação dos problemas respiratórios nos processos clínicos.</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-users" style="color:var(--primary-color);"></i> &nbsp;<strong>Sensibilizar</strong> a equipa médica para a importância do registo rigoroso e coerente com a terapêutica instituída.</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-gears" style="color:var(--primary-color);"></i> &nbsp;<strong>Promover</strong> uma abordagem sistemática e padronizada para validação dos diagnósticos respiratórios.</p></div>
+    <div class="info-card"><p><i class="fa-solid fa-arrow-trend-up" style="color:var(--primary-color);"></i> &nbsp;<strong>Aumentar</strong> a sustentabilidade da melhoria a médio e longo prazo.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 7 – DEFINIÇÃO DO INDICADOR 380 ===== -->
+<section id="s07">
+  <p class="section-label"><i class="fa-solid fa-book-medical"></i> Indicador 380</p>
+  <h2>Definição do Indicador 380</h2>
+  <div class="content">
+    <div class="highlight-box" style="margin-bottom:12px;">
+      <p style="font-weight:600; font-size:13pt; color:var(--primary-color);">Proporção de adultos com prescrição de medicamentos respiratórios e com diagnóstico de DPOC, asma ou bronquite crónica registado como <em>problema de saúde ativo</em>.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      <div class="info-card"><p class="label">Objetivo do Indicador</p><p>Avaliar a coerência entre a prescrição de medicamentos respiratórios e a existência de um diagnóstico respiratório crónico ativo (DPOC, asma ou bronquite crónica) ou outro justificativo, codificado de forma adequada no processo clínico.</p></div>
+      <div class="info-card" style="border-left-color:var(--secondary-color);"><p class="label">Natureza do Indicador</p><p>Trata-se de um <strong>indicador contratual</strong> que mede a <strong>qualidade</strong> e a <strong>fiabilidade</strong> do registo clínico.</p></div>
+    </div>
+    <div class="alert-box" style="margin-top:10px;">
+      <p><i class="fa-solid fa-circle-exclamation"></i> &nbsp;A coerência entre prescrição de medicamentos respiratórios e diagnóstico respiratório crónico ativo é condição essencial para o cumprimento do indicador.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 8 – DENOMINADOR ===== -->
+<section id="s08">
+  <p class="section-label"><i class="fa-solid fa-filter"></i> Denominador</p>
+  <h2>Denominador</h2>
+  <div class="content">
+    <p style="font-size:12pt; margin-bottom:8px;">São incluídos no denominador os utentes que <strong>cumulativamente</strong>:</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+      <div class="info-card"><p><i class="fa-solid fa-person" style="color:var(--primary-color);"></i> &nbsp;Têm <strong>idade ≥ 18 anos</strong></p></div>
+      <div class="info-card"><p><i class="fa-solid fa-stethoscope" style="color:var(--primary-color);"></i> &nbsp;Pelo menos uma <strong>consulta presencial na USF</strong> nos últimos 12 meses</p></div>
+      <div class="info-card" style="grid-column:span 2;"><p><i class="fa-solid fa-prescription-bottle-medical" style="color:var(--primary-color);"></i> &nbsp;<strong>Prescrição ativa, feita na USF</strong>, de pelo menos um medicamento do grupo <strong>R03</strong> da classificação ATC</p></div>
+    </div>
+    <table>
+      <thead><tr><th>Subgrupo ATC</th><th>Tipo de medicamento respiratório</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge">R03AC</span></td><td>Beta2 agonistas de curta duração</td></tr>
+        <tr><td><span class="badge">R03AK</span></td><td>Combinações com corticosteroides</td></tr>
+        <tr><td><span class="badge">R03BA</span></td><td>Corticosteroides inalados</td></tr>
+        <tr><td><span class="badge">R03BB</span></td><td>Beta2 agonistas de longa duração</td></tr>
+        <tr><td><span class="badge">R03CC</span></td><td>Antagonistas muscarínicos inalados</td></tr>
+      </tbody>
+    </table>
+    <div class="alert-box" style="margin-top:8px;"><p><i class="fa-solid fa-triangle-exclamation"></i> &nbsp;Apenas são consideradas <strong>prescrições realizadas na USF</strong>. Prescrições externas ou hospitalares <strong>não entram</strong> no cálculo do indicador.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 9 – NUMERADOR ===== -->
+<section id="s09">
+  <p class="section-label"><i class="fa-solid fa-check-double"></i> Numerador (Cumpridores)</p>
+  <h2>Numerador (Cumpridores)</h2>
+  <div class="content">
+    <p style="font-size:12pt; margin-bottom:10px;">Dos utentes do denominador, são considerados <strong>cumpridores</strong> aqueles que têm pelo menos um dos seguintes diagnósticos registados como <strong>problema de saúde ativo</strong> (campo "Problemas de Saúde"), com base na codificação <strong>ICPC-2</strong>:</p>
+    <table style="margin-bottom:14px;">
+      <thead><tr><th>Código ICPC-2</th><th>Diagnóstico Clínico</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-green">R95</span></td><td><strong>Doença Pulmonar Obstrutiva Crónica (DPOC)</strong></td></tr>
+        <tr><td><span class="badge badge-green">R96</span></td><td><strong>Asma</strong></td></tr>
+        <tr><td><span class="badge badge-green">R79</span></td><td><strong>Bronquite Crónica</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="alert-box"><p><i class="fa-solid fa-circle-exclamation"></i> &nbsp;O diagnóstico deve estar <strong>ativo</strong>. <em>Não é suficiente</em> constar apenas no <strong>A do SOAP</strong> ou em anotações do processo.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 10 – EXCLUSÕES ===== -->
+<section id="s10">
+  <p class="section-label"><i class="fa-solid fa-ban"></i> Exclusões do Denominador</p>
+  <h2>Exclusões do Denominador</h2>
+  <div class="content">
+    <p style="font-size:12pt; margin-bottom:6px;">O utente é <strong>excluído automaticamente</strong> se, no <em>mesmo dia da prescrição de um inalador</em>, tiver um dos seguintes códigos ICPC-2 no campo <strong>A do SOAP</strong>:</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px 16px; margin-bottom:8px;">
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R02</span> Dificuldade respiratória/dispneia</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R03</span> Pieira</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R04</span> Problema respiratório outro</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R29</span> Sintoma/queixa do aparelho respiratório outro</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R71</span> Tosse convulsa</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R78</span> Bronquite/bronquiolite aguda</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R82</span> Pleurisia/derrame pleural</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R83</span> Infeção respiratória outra</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R84</span> Neoplasia maligna do brônquio/pulmão</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R85</span> Neoplasia respiratória maligna outra</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R86</span> Neoplasia respiratória benigna</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R88</span> Lesão respiratória outra</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R89</span> Malformação congénita respiratória</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R92</span> Neoplasia respiratória não especificada</p>
+      <p style="font-size:10pt; margin:2px 0;"><span class="badge badge-red">R99</span> Doença respiratória outra</p>
+    </div>
+    <div class="success-box"><p><i class="fa-solid fa-circle-check"></i> &nbsp;Estes códigos refletem <strong>condições pontuais ou agudas</strong>. Quando corretamente codificados no A do SOAP no mesmo dia da prescrição, <strong>evitam que o utente seja incluído no indicador</strong> — sem prejudicar o desempenho da unidade.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 11 – METODOLOGIA: RECOLHA DE DADOS ===== -->
+<section id="s11">
+  <p class="section-label"><i class="fa-solid fa-database"></i> Metodologia – 6.1</p>
+  <h2>Metodologia: Recolha de Dados</h2>
+  <div class="content" style="justify-content:center;">
+    <div class="highlight-box" style="margin-bottom:16px;"><p style="font-weight:700; margin:0;">6.1 Recolha de dados</p></div>
+    <div class="info-card" style="padding:20px 24px;">
+      <p><i class="fa-solid fa-computer" style="color:var(--primary-color); font-size:16pt; margin-bottom:8px; display:block;"></i></p>
+      <p class="text-lg">Obtenção da <strong>lista de utentes não cumpridores</strong>, por médico de família, do <strong>Indicador 380</strong> através do <span class="badge badge-purple">MIM@UF</span></p>
+    </div>
+    <div class="secondary-card" style="margin-top:12px;"><p><i class="fa-solid fa-circle-info" style="color:var(--secondary-color);"></i> &nbsp;A lista é gerada individualmente por médico assistente, permitindo uma análise personalizada dos casos não cumpridores.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 12 – METODOLOGIA: ANÁLISE CLÍNICA ===== -->
+<section id="s12">
+  <p class="section-label"><i class="fa-solid fa-microscope"></i> Metodologia – 6.2</p>
+  <h2>Metodologia: Análise Clínica</h2>
+  <div class="content">
+    <div class="highlight-box" style="margin-bottom:12px;"><p style="font-weight:700; margin:0;">6.2 Análise clínica — Verificação individual de cada caso:</p></div>
+    <div class="info-card" style="margin-bottom:6px;"><p><span class="badge" style="margin-right:8px;">1</span> Consulta médica <strong>presencial nos últimos 12 meses</strong></p></div>
+    <div class="info-card" style="margin-bottom:6px;"><p><span class="badge" style="margin-right:8px;">2</span> Prescrição <strong>ativa de inaladores realizada na USF</strong></p></div>
+    <div class="info-card" style="margin-bottom:6px;"><p><span class="badge" style="margin-right:8px;">3</span> Diagnóstico respiratório crónico <strong>ativo</strong> ou <em>ausência de codificação adequada</em></p></div>
+    <div class="info-card"><p><span class="badge" style="margin-right:8px;">4</span> Possibilidade de <strong>exclusão do indicador</strong> com codificação alternativa no <strong>A do SOAP</strong></p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 13 – METODOLOGIA: INTERVENÇÕES ===== -->
+<section id="s13">
+  <p class="section-label"><i class="fa-solid fa-pen-to-square"></i> Metodologia – 6.3</p>
+  <h2>Metodologia: Intervenções</h2>
+  <div class="content">
+    <div class="highlight-box" style="margin-bottom:12px;"><p style="font-weight:700; margin:0;">6.3 Intervenções</p></div>
+    <div class="success-box" style="margin-bottom:8px;"><p><i class="fa-solid fa-folder-plus" style="color:var(--success-color);"></i> &nbsp;<strong>Abertura de diagnóstico ativo</strong> (em data coerente com a prescrição) nos problemas <span class="badge badge-green">R95</span> <span class="badge badge-green">R96</span> <span class="badge badge-green">R79</span> — nos casos clinicamente justificados.</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-file-medical" style="color:var(--primary-color);"></i> &nbsp;<strong>Codificação aguda</strong> no A do SOAP no dia da prescrição — nos casos transitórios.</p></div>
+    <div class="secondary-card"><p><i class="fa-solid fa-calendar-check" style="color:var(--secondary-color);"></i> &nbsp;<strong>Sinalização para avaliação clínica presencial</strong> em casos sem elementos suficientes.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 14 – METODOLOGIA: UNIFORMIZAÇÃO ===== -->
+<section id="s14">
+  <p class="section-label"><i class="fa-solid fa-arrows-to-circle"></i> Metodologia – 6.4</p>
+  <h2>Metodologia: Uniformização</h2>
+  <div class="content" style="justify-content:center;">
+    <div class="highlight-box" style="margin-bottom:16px;"><p style="font-weight:700; margin:0;">6.4 Uniformização</p></div>
+    <div class="info-card" style="padding:18px 22px; margin-bottom:12px;"><p><i class="fa-solid fa-share-nodes" style="color:var(--primary-color); font-size:14pt; margin-right:8px;"></i><strong>Divulgação interna</strong> do protocolo e critérios a toda a equipa médica.</p></div>
+    <div class="info-card" style="padding:18px 22px;"><p><i class="fa-solid fa-people-group" style="color:var(--primary-color); font-size:14pt; margin-right:8px;"></i><strong>Reuniões para esclarecimento</strong>, sempre que necessário.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 15 – CRONOGRAMA ORIGINAL ===== -->
+<section id="s15">
+  <p class="section-label"><i class="fa-solid fa-calendar-days"></i> Cronograma</p>
+  <h2>Cronograma Original</h2>
+  <div class="content">
+    <table>
+      <thead><tr><th>Datas</th><th>Ação</th><th>Responsáveis</th></tr></thead>
+      <tbody>
+        <tr><td><strong>13/06/2025</strong></td><td>Apresentação do projeto à equipa</td><td>Daniela e Sofia</td></tr>
+        <tr><td><strong>13/06/2025</strong></td><td>Distribuição da lista por médico assistente</td><td>Daniela e Sofia</td></tr>
+        <tr><td><strong>16/06 – 01/08/2025</strong></td><td>Análise, correção dos registos e agendamento de avaliações clínicas, sempre que necessário</td><td>Equipa médica</td></tr>
+        <tr><td><strong>09-10/2025</strong></td><td>1.ª avaliação e monitorização da melhoria</td><td>Daniela e Sofia + Equipa da USF</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== SLIDE 16 – TIMELINE ===== -->
+<section id="s16">
+  <p class="section-label"><i class="fa-solid fa-timeline"></i> Percurso da Iniciativa</p>
+  <h2>Timeline da Iniciativa até à 2.ª Avaliação</h2>
+  <div class="content">
+    <!-- Timeline visual horizontal -->
+    <div style="position:relative; margin:24px 0 10px; padding-bottom:10px;">
+      <!-- Linha horizontal de fundo -->
+      <div style="position:absolute; top:22px; left:0; right:0; height:4px; background:var(--border-color); z-index:0;"></div>
+      <!-- Barra de progresso colorida até Fev 2026 -->
+      <div style="position:absolute; top:22px; left:0; width:85%; height:4px; background:linear-gradient(to right, var(--primary-color), var(--secondary-color)); z-index:1;"></div>
+
+      <!-- Steps -->
+      <div style="display:flex; align-items:flex-start; position:relative; z-index:2;">
+
+        <!-- Passo 1 -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+          <div style="width:18px; height:18px; border-radius:50%; background:var(--primary-color); border:3px solid #fff; box-shadow:0 0 0 2px var(--primary-color); flex-shrink:0;"></div>
+          <p style="font-size:8pt; font-weight:700; color:var(--primary-color); text-align:center; margin:5px 0 2px; text-transform:uppercase; letter-spacing:0.04em;">Mai/Jun 2025</p>
+          <div style="background:var(--card-bg); border:1px solid var(--border-color); border-radius:4px; padding:5px 6px; text-align:center; width:90%;">
+            <p style="font-size:9pt; margin:0; font-weight:600;">Preparação e arranque</p>
+            <p style="font-size:8pt; margin:0; color:var(--muted-color);">Protocolo inicial</p>
+          </div>
+        </div>
+
+        <!-- Passo 2 -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+          <div style="width:18px; height:18px; border-radius:50%; background:var(--primary-color); border:3px solid #fff; box-shadow:0 0 0 2px var(--primary-color); flex-shrink:0;"></div>
+          <p style="font-size:8pt; font-weight:700; color:var(--primary-color); text-align:center; margin:5px 0 2px; text-transform:uppercase; letter-spacing:0.04em;">13/06/2025</p>
+          <div style="background:var(--card-bg); border:1px solid var(--border-color); border-radius:4px; padding:5px 6px; text-align:center; width:90%;">
+            <p style="font-size:9pt; margin:0; font-weight:600;">Apresentação à equipa</p>
+            <p style="font-size:8pt; margin:0; color:var(--muted-color);">Distribuição de listas</p>
+          </div>
+        </div>
+
+        <!-- Passo 3 -->
+        <div style="flex:1.2; display:flex; flex-direction:column; align-items:center;">
+          <div style="width:18px; height:18px; border-radius:50%; background:var(--primary-color); border:3px solid #fff; box-shadow:0 0 0 2px var(--primary-color); flex-shrink:0;"></div>
+          <p style="font-size:8pt; font-weight:700; color:var(--primary-color); text-align:center; margin:5px 0 2px; text-transform:uppercase; letter-spacing:0.04em;">16/06 – 01/08/2025</p>
+          <div style="background:var(--card-bg); border:1px solid var(--border-color); border-radius:4px; padding:5px 6px; text-align:center; width:90%;">
+            <p style="font-size:9pt; margin:0; font-weight:600;">Análise e Correção</p>
+            <p style="font-size:8pt; margin:0; color:var(--muted-color);">Registos + agendamentos</p>
+          </div>
+        </div>
+
+        <!-- Passo 4 -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+          <div style="width:18px; height:18px; border-radius:50%; background:var(--secondary-color); border:3px solid #fff; box-shadow:0 0 0 2px var(--secondary-color); flex-shrink:0;"></div>
+          <p style="font-size:8pt; font-weight:700; color:var(--secondary-color); text-align:center; margin:5px 0 2px; text-transform:uppercase; letter-spacing:0.04em;">Set/Out 2025</p>
+          <div style="background:#F3EDF8; border:1px solid var(--secondary-color); border-radius:4px; padding:5px 6px; text-align:center; width:90%;">
+            <p style="font-size:9pt; margin:0; font-weight:600; color:var(--secondary-color);">1.ª Avaliação</p>
+            <p style="font-size:8pt; margin:0; color:var(--muted-color);">Monitorização da melhoria</p>
+          </div>
+        </div>
+
+        <!-- Passo 5 -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+          <div style="width:18px; height:18px; border-radius:50%; background:var(--accent-color); border:3px solid #fff; box-shadow:0 0 0 2px var(--accent-color); flex-shrink:0;"></div>
+          <p style="font-size:8pt; font-weight:700; color:#A0680A; text-align:center; margin:5px 0 2px; text-transform:uppercase; letter-spacing:0.04em;">Fev 2026</p>
+          <div style="background:#FEF7E8; border:1px solid var(--accent-color); border-radius:4px; padding:5px 6px; text-align:center; width:90%;">
+            <p style="font-size:9pt; margin:0; font-weight:600; color:#A0680A;">Ponto de corte</p>
+            <p style="font-size:8pt; margin:0; color:var(--muted-color);">Resultados disponíveis</p>
+          </div>
+        </div>
+
+        <!-- Passo 6 -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:var(--success-color); border:3px solid #fff; box-shadow:0 0 0 3px var(--success-color); flex-shrink:0;"></div>
+          <p style="font-size:8pt; font-weight:700; color:var(--success-color); text-align:center; margin:5px 0 2px; text-transform:uppercase; letter-spacing:0.04em;">Mai 2026</p>
+          <div style="background:#EDF7F0; border:2px solid var(--success-color); border-radius:4px; padding:5px 6px; text-align:center; width:90%;">
+            <p style="font-size:9pt; margin:0; font-weight:700; color:var(--success-color);">2.ª Avaliação</p>
+            <p style="font-size:8pt; margin:0; color:var(--muted-color);">Apresentação atual</p>
+          </div>
+        </div>
+
+      </div><!-- /flex -->
+    </div><!-- /timeline wrapper -->
+
+    <!-- Fases -->
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr; gap:8px; margin-top:12px;">
+      <div style="background:rgba(26,95,122,0.08); border-radius:6px; padding:8px 12px; border-top:3px solid var(--primary-color);">
+        <p style="font-size:10pt; font-weight:700; color:var(--primary-color); margin:0 0 2px;">Fase 1 – Diagnóstico e Intervenção</p>
+        <p style="font-size:9pt; margin:0; color:var(--muted-color);">Jun – Ago 2025</p>
+      </div>
+      <div style="background:rgba(107,63,160,0.08); border-radius:6px; padding:8px 12px; border-top:3px solid var(--secondary-color);">
+        <p style="font-size:10pt; font-weight:700; color:var(--secondary-color); margin:0 0 2px;">Fase 2 – Monitorização</p>
+        <p style="font-size:9pt; margin:0; color:var(--muted-color);">Set 2025 – Fev 2026</p>
+      </div>
+      <div style="background:rgba(42,122,59,0.08); border-radius:6px; padding:8px 12px; border-top:3px solid var(--success-color);">
+        <p style="font-size:10pt; font-weight:700; color:var(--success-color); margin:0 0 2px;">Fase 3 – 2.ª Avaliação</p>
+        <p style="font-size:9pt; margin:0; color:var(--muted-color);">Maio 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 17 – CRITÉRIOS DE AVALIAÇÃO ===== -->
+<section id="s17">
+  <p class="section-label"><i class="fa-solid fa-ruler-combined"></i> Critérios de Avaliação</p>
+  <h2>Critérios de Avaliação</h2>
+  <div class="content">
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-percent" style="color:var(--primary-color); width:18px;"></i> &nbsp;Percentagem de utentes identificados com <strong>correção adequada do registo</strong></p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-arrow-trend-up" style="color:var(--primary-color); width:18px;"></i> &nbsp;<strong>Aumento da taxa de cumprimento</strong> do Indicador 380</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-user-check" style="color:var(--primary-color); width:18px;"></i> &nbsp;Percentagem de utentes <strong>reavaliados clinicamente</strong></p></div>
+    <div class="info-card"><p><i class="fa-solid fa-leaf" style="color:var(--primary-color); width:18px;"></i> &nbsp;<strong>Sustentabilidade da melhoria</strong> a médio prazo</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 18 – RESULTADOS ESPERADOS ===== -->
+<section id="s18">
+  <p class="section-label"><i class="fa-solid fa-star"></i> Resultados Esperados</p>
+  <h2>Resultados Esperados</h2>
+  <div class="content">
+    <div class="success-box" style="margin-bottom:7px;"><p><i class="fa-solid fa-circle-check"></i> &nbsp;<strong>Aumento eficiente e sustentado</strong> da taxa de cumprimento do Indicador 380.</p></div>
+    <div class="success-box" style="margin-bottom:7px;"><p><i class="fa-solid fa-circle-check"></i> &nbsp;<strong>Redução das omissões de diagnóstico</strong> em utentes com prescrição de inaladores.</p></div>
+    <div class="success-box" style="margin-bottom:7px;"><p><i class="fa-solid fa-circle-check"></i> &nbsp;<strong>Maior coerência</strong> entre prescrição e registo clínico.</p></div>
+    <div class="success-box" style="margin-bottom:7px;"><p><i class="fa-solid fa-circle-check"></i> &nbsp;Promoção de uma <strong>cultura de codificação rigorosa</strong> e clinicamente fundamentada.</p></div>
+    <div class="success-box"><p><i class="fa-solid fa-circle-check"></i> &nbsp;<strong>Valorização do desempenho clínico</strong> da USF Serra da Lousã.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 19 – RESULTADOS ATÉ FEVEREIRO 2026 ===== -->
+<section id="s19">
+  <p class="section-label"><i class="fa-solid fa-chart-bar"></i> Resultados – 2.ª Avaliação</p>
+  <h2>Resultados até Fevereiro de 2026</h2>
+  <div class="content">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+      <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8;">
+        <p class="label">Resultado do Indicador 380 — Fevereiro 2026</p>
+        <p class="editable-field">[inserir valor]</p>
+      </div>
+      <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8;">
+        <p class="label">Score — Fevereiro 2026</p>
+        <p class="editable-field">[inserir valor]</p>
+      </div>
+      <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8;">
+        <p class="label">Variação face a Março 2025</p>
+        <p class="editable-field">[inserir valor]</p>
+      </div>
+      <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8;">
+        <p class="label">Utentes inicialmente identificados como não cumpridores</p>
+        <p class="editable-field">[inserir valor]</p>
+      </div>
+      <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8;">
+        <p class="label">Número de registos corrigidos</p>
+        <p class="editable-field">[inserir valor]</p>
+      </div>
+      <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8;">
+        <p class="label">Utentes reavaliados clinicamente</p>
+        <p class="editable-field">[inserir valor]</p>
+      </div>
+      <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8;">
+        <p class="label">Situações excluídas / codificadas como agudas</p>
+        <p class="editable-field">[inserir valor]</p>
+      </div>
+      <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8;">
+        <p class="label">Situações pendentes</p>
+        <p class="editable-field">[inserir valor]</p>
+      </div>
+    </div>
+    <div class="alert-box"><p><i class="fa-solid fa-triangle-exclamation"></i> &nbsp;Preencher com os dados reais disponíveis até Fevereiro de 2026. Não criar valores fictícios.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 20 – EVOLUÇÃO DO INDICADOR 380 ===== -->
+<section id="s20" style="display:flex; flex-direction:column; height:100%;">
+  <p class="section-label"><i class="fa-solid fa-chart-line"></i> Evolução</p>
+  <h2>Evolução do Indicador 380</h2>
+  <div class="content" style="flex:1; display:flex; flex-direction:column; min-height:0;">
+    <div style="flex:1; position:relative; min-height:200px;">
+      <canvas data-chart="line">
+      <!--
+      {
+        "data": {
+          "labels": ["Dez 2024","Jan 2025","Fev 2025","Mar 2025","[dados a inserir]"],
+          "datasets": [
+            {"label":"Resultado Indicador 380 (%)","data":[80.488,79.412,79.381,79.828,null],"borderColor":"#1A5F7A","backgroundColor":"rgba(26,95,122,0.1)","borderWidth":3,"pointRadius":6,"fill":true,"tension":0.3,"spanGaps":false},
+            {"label":"Mínimo esperado (81%)","data":[81,81,81,81,81],"borderColor":"#E8A838","borderWidth":2,"borderDash":[6,4],"pointRadius":0,"fill":false},
+            {"label":"Resultado Fev 2026 (a inserir)","data":[null,null,null,null,null],"borderColor":"#2A7A3B","borderWidth":3,"pointRadius":7,"fill":false,"borderDash":[]}
+          ]
+        },
+        "options":{"maintainAspectRatio":false,"plugins":{"legend":{"position":"bottom","labels":{"font":{"size":10}}}},"scales":{"y":{"min":76,"max":92,"title":{"display":true,"text":"Resultado (%)","font":{"size":10}}}}}
+      }
+      -->
+      </canvas>
+    </div>
+    <div class="highlight-box" style="margin-top:10px;"><p style="font-size:11pt; margin:0;"><i class="fa-solid fa-circle-info" style="color:var(--accent-color);"></i> &nbsp;O valor correspondente a Fevereiro 2026 deverá ser inserido quando disponível. Os dados iniciais (Dez 2024 – Mar 2025) são os constantes do protocolo.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 21 – ANÁLISE DA 2.ª AVALIAÇÃO ===== -->
+<section id="s21">
+  <p class="section-label"><i class="fa-solid fa-magnifying-glass"></i> Análise</p>
+  <h2>Análise da 2.ª Avaliação</h2>
+  <div class="content">
+    <div class="secondary-card" style="margin-bottom:10px;">
+      <p><i class="fa-solid fa-circle-info" style="color:var(--secondary-color);"></i> &nbsp;"Os resultados disponíveis sugerem..." <span class="editable-field">[análise a completar com dados reais]</span></p>
+    </div>
+    <div class="info-card" style="margin-bottom:8px;">
+      <p class="label">Considerações metodológicas</p>
+      <p>A análise deverá considerar o contexto assistencial e as especificidades de cada caso identificado. Os resultados devem ser interpretados à luz da metodologia aplicada.</p>
+    </div>
+    <div class="info-card" style="margin-bottom:8px;">
+      <p class="label">Sustentabilidade</p>
+      <p>A sustentabilidade da melhoria deverá ser avaliada através do comportamento do indicador ao longo dos meses subsequentes à intervenção.</p>
+    </div>
+    <div class="alert-box">
+      <p><i class="fa-solid fa-triangle-exclamation"></i> &nbsp;Não afirmar sucesso, melhoria sustentada ou impacto comprovado sem dados que o demonstrem. Completar esta análise após inserção dos dados reais.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 22 – EXEMPLOS PRÁTICOS (INTRODUÇÃO) ===== -->
+<section id="s22" class="section-divider">
+  <h2 style="font-size:26pt; margin-bottom:14px;">Anexo: Exemplos Práticos</h2>
+  <h2 style="font-size:18pt; border-bottom:none; color:rgba(255,255,255,0.9); font-family:var(--body-font); font-weight:400;">Aplicação do Protocolo do Indicador 380</h2>
+  <p style="margin-top:16px; font-size:13pt; max-width:600px; text-align:center;">Os exemplos ajudam a uniformizar a aplicação do Indicador 380 e a distinguir situações <strong style="color:#fff;">cumpridoras</strong>, <strong style="color:rgba(255,255,255,0.8);">não cumpridoras</strong>, que <strong style="color:rgba(255,255,255,0.8);">justificam exclusão</strong> ou que <strong style="color:rgba(255,255,255,0.8);">exigem reavaliação clínica</strong>.</p>
+</section>
+
+<!-- ===== SLIDE 23 – EXEMPLO 1 ===== -->
+<section id="s23">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 1</p>
+  <h2>Exemplo 1: Cumpridor com Diagnóstico Ativo</h2>
+  <div class="content">
+    <div class="success-box" style="margin-bottom:14px;"><p><span class="pill pill-green">✔ CUMPRE O INDICADOR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      <div class="info-card"><p class="label">Utente</p><p>74 anos</p></div>
+      <div class="info-card"><p class="label">Prescrição ativa</p><p>Combinação de inalador LAMA + LABA <span class="badge">R03BB</span> + <span class="badge">R03CC</span></p></div>
+      <div class="info-card"><p class="label">Consulta presencial</p><p>Há 5 meses</p></div>
+      <div class="info-card" style="border-left-color:var(--success-color);"><p class="label">Diagnóstico ativo</p><p><span class="badge badge-green">R95</span> – <strong>DPOC</strong></p></div>
+    </div>
+    <div class="success-box" style="margin-top:12px;"><p><i class="fa-solid fa-circle-check"></i> &nbsp;<strong>Situação correta.</strong> O diagnóstico crónico está ativo nos problemas de saúde, coerente com a prescrição.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 24 – EXEMPLO 2 ===== -->
+<section id="s24">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 2</p>
+  <h2>Exemplo 2: Não Cumpridor – Sem Diagnóstico Ativo</h2>
+  <div class="content">
+    <div class="alert-box" style="margin-bottom:12px;"><p><span class="pill pill-red">✗ NÃO CUMPRE O INDICADOR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+      <div class="info-card"><p class="label">Utente</p><p>55 anos</p></div>
+      <div class="info-card"><p class="label">Prescrição ativa</p><p>Budesonido inalado <span class="badge">R03BA</span></p></div>
+      <div class="info-card"><p class="label">Consulta presencial</p><p>Há 3 meses</p></div>
+      <div class="info-card" style="border-left-color:var(--warning-color);"><p class="label">Diagnóstico ativo</p><p><strong>Nenhum</strong></p></div>
+    </div>
+    <div class="secondary-card">
+      <p style="font-weight:700; margin-bottom:6px;"><i class="fa-solid fa-wrench" style="color:var(--secondary-color);"></i> &nbsp;Intervenção sugerida:</p>
+      <ul style="margin:0; padding-left:1.2em;">
+        <li style="font-size:12pt;">Rever processo clínico: história de asma? resposta à terapêutica? exames?</li>
+        <li style="font-size:12pt;">Se confirmado → abrir <span class="badge badge-green">R96</span> – Asma</li>
+        <li style="font-size:12pt;">Se não confirmado → avaliar possível exclusão com código agudo no A do SOAP ou convocar consulta.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 25 – EXEMPLO 3 ===== -->
+<section id="s25">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 3</p>
+  <h2>Exemplo 3: Exclusão do Denominador com Código Agudo no SOAP</h2>
+  <div class="content">
+    <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8; margin-bottom:12px;"><p><span class="pill pill-amber">↩ EXCLUÍDO DO DENOMINADOR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+      <div class="info-card"><p class="label">Utente</p><p>40 anos</p></div>
+      <div class="info-card"><p class="label">Prescrição</p><p>Salbutamol 100 mcg inalador</p></div>
+      <div class="info-card"><p class="label">Motivo da prescrição</p><p>Gripe com pieira passageira</p></div>
+      <div class="info-card"><p class="label">Consulta médica presencial</p><p>No mesmo dia</p></div>
+      <div class="info-card" style="grid-column:span 2; border-left-color:var(--accent-color);"><p class="label">Registo no A do SOAP</p><p><span class="badge badge-red">R03</span> – <strong>Pieira</strong></p></div>
+    </div>
+    <div class="success-box"><p><i class="fa-solid fa-circle-check"></i> &nbsp;Será <strong>excluído automaticamente</strong> do denominador. <strong>Não prejudica o indicador.</strong></p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 26 – EXEMPLO 4 ===== -->
+<section id="s26">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 4</p>
+  <h2>Exemplo 4: Erro Comum – Prescrição Crónica sem Diagnóstico nem Código Agudo</h2>
+  <div class="content">
+    <div class="alert-box" style="margin-bottom:12px;"><p><span class="pill pill-red">✗ PREJUDICA O INDICADOR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+      <div class="info-card"><p class="label">Utente</p><p>68 anos</p></div>
+      <div class="info-card"><p class="label">Prescrição</p><p>LAMA + LABA de forma <strong>continuada</strong></p></div>
+      <div class="info-card" style="border-left-color:var(--warning-color);"><p class="label">Diagnóstico ativo</p><p>Sem diagnóstico ativo</p></div>
+      <div class="info-card" style="border-left-color:var(--warning-color);"><p class="label">Código agudo no A do SOAP</p><p>Ausente</p></div>
+    </div>
+    <div class="secondary-card">
+      <p><i class="fa-solid fa-wrench" style="color:var(--secondary-color);"></i> &nbsp;<strong>Intervenção:</strong> Rever história clínica → se justificar, abrir diagnóstico ativo <span class="badge badge-green">R95</span> ou <span class="badge badge-green">R96</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 27 – EXEMPLO 5 ===== -->
+<section id="s27">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 5</p>
+  <h2>Exemplo 5: Diagnóstico Errado – R88 como Ativo</h2>
+  <div class="content">
+    <div class="alert-box" style="margin-bottom:12px;"><p><span class="pill pill-red">✗ NÃO CUMPRE O INDICADOR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+      <div class="info-card"><p class="label">Utente</p><p>61 anos</p></div>
+      <div class="info-card"><p class="label">Prescrição</p><p>Budesonido + Formoterol</p></div>
+      <div class="info-card" style="grid-column:span 2; border-left-color:var(--warning-color);"><p class="label">Diagnóstico ativo registado</p><p><span class="badge badge-red">R88</span> – Infeção respiratória viral &nbsp;<em style="font-size:11pt; color:var(--warning-color);">(diagnóstico agudo — não entra no numerador)</em></p></div>
+    </div>
+    <div class="secondary-card">
+      <p><i class="fa-solid fa-wrench" style="color:var(--secondary-color);"></i> &nbsp;<strong>Intervenção:</strong> Se patologia crónica → corrigir para <span class="badge badge-green">R96</span> – Asma, se aplicável.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 28 – EXEMPLO 6 ===== -->
+<section id="s28">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 6</p>
+  <h2>Exemplo 6: Dúvida Clínica – Pieira por Insuficiência Cardíaca Descompensada</h2>
+  <div class="content">
+    <div class="info-card" style="border-left-color:var(--accent-color); background:#FEF7E8; margin-bottom:12px;"><p><span class="pill pill-amber">⚠ REAVALIAR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+      <div class="info-card"><p class="label">Utente</p><p>80 anos</p></div>
+      <div class="info-card"><p class="label">Antecedente</p><p>Insuficiência cardíaca com pieira</p></div>
+      <div class="info-card" style="grid-column:span 2;"><p class="label">Contexto</p><p>Prescrição de inalador em contexto agudo</p></div>
+    </div>
+    <div class="secondary-card">
+      <p style="font-weight:700; margin-bottom:6px;"><i class="fa-solid fa-wrench" style="color:var(--secondary-color);"></i> &nbsp;Intervenção:</p>
+      <ul style="margin:0; padding-left:1.2em;">
+        <li style="font-size:12pt;">Se prescrição foi <strong>pontual</strong> → codificar no A do SOAP com <span class="badge badge-red">R03</span> – Pieira</li>
+        <li style="font-size:12pt;">Se mantida <strong>cronicamente sem justificação respiratória</strong> → descontinuar ou reavaliar.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 29 – EXEMPLO 7 ===== -->
+<section id="s29">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 7</p>
+  <h2>Exemplo 7: Prescrição Hospitalar – Não Entra no Indicador</h2>
+  <div class="content" style="justify-content:center;">
+    <div class="info-card" style="border-left-color:var(--muted-color); background:#F5F5F5; margin-bottom:12px;"><p><span class="pill pill-blue">→ SEM IMPACTO NO INDICADOR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+      <div class="info-card"><p class="label">Utente</p><p>59 anos</p></div>
+      <div class="info-card"><p class="label">Medicação</p><p>LAMA prescrita no hospital</p></div>
+      <div class="info-card" style="grid-column:span 2; border-left-color:var(--warning-color);"><p class="label">Prescrição na USF</p><p><strong>Sem prescrição na USF</strong></p></div>
+    </div>
+    <div class="success-box"><p><i class="fa-solid fa-circle-check"></i> &nbsp;<strong>Não entra no denominador.</strong> Prescrições hospitalares não entram no cálculo do indicador. Sem impacto no indicador.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 30 – EXEMPLO 8 ===== -->
+<section id="s30">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 8</p>
+  <h2>Exemplo 8: Sem Consulta Presencial nos Últimos 12 Meses</h2>
+  <div class="content">
+    <div class="info-card" style="border-left-color:var(--muted-color); background:#F5F5F5; margin-bottom:12px;"><p><span class="pill pill-blue">→ NÃO ENTRA NO DENOMINADOR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+      <div class="info-card"><p class="label">Utente</p><p>47 anos</p></div>
+      <div class="info-card"><p class="label">Prescrição</p><p>Budesonido inalado <span class="badge">R03BA</span></p></div>
+      <div class="info-card" style="grid-column:span 2; border-left-color:var(--warning-color);"><p class="label">Última consulta presencial</p><p>Há <strong>14 meses</strong> — fora do critério de 12 meses</p></div>
+    </div>
+    <div class="secondary-card">
+      <p><i class="fa-solid fa-wrench" style="color:var(--secondary-color);"></i> &nbsp;<strong>Intervenção:</strong> Sinalizar para <strong>agendamento de consulta</strong> e futura reavaliação.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 31 – EXEMPLO 9 ===== -->
+<section id="s31">
+  <p class="section-label"><i class="fa-solid fa-flask"></i> Exemplo 9</p>
+  <h2>Exemplo 9: Diagnóstico de Bronquite Crónica Válido</h2>
+  <div class="content" style="justify-content:center;">
+    <div class="success-box" style="margin-bottom:14px;"><p><span class="pill pill-green">✔ CUMPRE O INDICADOR</span></p></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      <div class="info-card"><p class="label">Utente</p><p>62 anos</p></div>
+      <div class="info-card"><p class="label">Prescrição</p><p>LAMA + ICS</p></div>
+      <div class="info-card" style="grid-column:span 2; border-left-color:var(--success-color);"><p class="label">Diagnóstico ativo</p><p><span class="badge badge-green">R79</span> – <strong>Bronquite Crónica</strong></p></div>
+    </div>
+    <div class="success-box" style="margin-top:14px;"><p><i class="fa-solid fa-circle-check"></i> &nbsp;<strong>Cumpre o indicador.</strong> O diagnóstico de Bronquite Crónica está registado como problema ativo, coerente com a terapêutica prescrita.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 32 – SÍNTESE DOS CASOS-TIPO ===== -->
+<section id="s32">
+  <p class="section-label"><i class="fa-solid fa-table"></i> Síntese</p>
+  <h2>Síntese dos Casos-Tipo</h2>
+  <div class="content">
+    <table style="font-size:9.5pt;">
+      <thead><tr><th style="width:7%;">Ex.</th><th style="width:28%;">Situação</th><th style="width:22%;">Estado</th><th>Ação recomendada</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>74a, LAMA+LABA, R95 ativo</td><td><span class="pill pill-green">✔ Cumpre</span></td><td>Sem intervenção necessária</td></tr>
+        <tr><td><strong>2</strong></td><td>55a, Budesonido, sem diagnóstico</td><td><span class="pill pill-red">✗ Não cumpre</span></td><td>Rever processo; se confirmado → R96; se não → código agudo/consulta</td></tr>
+        <tr><td><strong>3</strong></td><td>40a, Salbutamol, R03 no SOAP</td><td><span class="pill pill-amber">↩ Excluído</span></td><td>Código agudo correto — não prejudica indicador</td></tr>
+        <tr><td><strong>4</strong></td><td>68a, LAMA+LABA crónico, sem diagn.</td><td><span class="pill pill-red">✗ Prejudica</span></td><td>Rever história clínica → R95 ou R96</td></tr>
+        <tr><td><strong>5</strong></td><td>61a, R88 como ativo, Bud+Form</td><td><span class="pill pill-red">✗ Não cumpre</span></td><td>R88 é agudo; corrigir para R96 se crónico</td></tr>
+        <tr><td><strong>6</strong></td><td>80a, IC com pieira, inalador agudo</td><td><span class="pill pill-amber">⚠ Reavaliar</span></td><td>Pontual → R03 SOAP; crónico sem justif. → descontinuar</td></tr>
+        <tr><td><strong>7</strong></td><td>59a, LAMA prescrita no hospital</td><td><span class="pill pill-blue">→ Sem impacto</span></td><td>Não entra no denominador</td></tr>
+        <tr><td><strong>8</strong></td><td>47a, Budesonido, consulta há 14m</td><td><span class="pill pill-blue">→ Sem impacto</span></td><td>Sinalizar para agendamento de consulta</td></tr>
+        <tr><td><strong>9</strong></td><td>62a, LAMA+ICS, R79 ativo</td><td><span class="pill pill-green">✔ Cumpre</span></td><td>Sem intervenção necessária</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== SLIDE 33 – APRENDIZAGENS OPERACIONAIS ===== -->
+<section id="s33">
+  <p class="section-label"><i class="fa-solid fa-lightbulb"></i> Aprendizagens</p>
+  <h2>Principais Aprendizagens Operacionais</h2>
+  <div class="content">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+      <div class="info-card"><p><i class="fa-solid fa-folder-open" style="color:var(--primary-color);"></i> &nbsp;O diagnóstico crónico deve estar registado como <strong>problema ativo</strong></p></div>
+      <div class="info-card"><p><i class="fa-solid fa-file-circle-xmark" style="color:var(--warning-color);"></i> &nbsp;O <strong>A do SOAP não substitui</strong> o problema ativo para o numerador</p></div>
+      <div class="info-card"><p><i class="fa-solid fa-shield-halved" style="color:var(--success-color);"></i> &nbsp;Códigos agudos corretos no SOAP podem <strong>excluir do denominador</strong> sem penalização</p></div>
+      <div class="info-card"><p><i class="fa-solid fa-hospital" style="color:var(--muted-color);"></i> &nbsp;<strong>Prescrição hospitalar</strong> sem prescrição na USF <strong>não entra</strong> no indicador</p></div>
+      <div class="info-card"><p><i class="fa-solid fa-calendar-xmark" style="color:var(--warning-color);"></i> &nbsp;Ausência de <strong>consulta presencial nos 12 meses</strong> exclui do denominador</p></div>
+      <div class="info-card" style="border-left-color:var(--secondary-color);"><p><i class="fa-solid fa-stethoscope" style="color:var(--secondary-color);"></i> &nbsp;<strong>Casos duvidosos</strong> devem ser reavaliados clinicamente</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 34 – SUSTENTABILIDADE ===== -->
+<section id="s34">
+  <p class="section-label"><i class="fa-solid fa-leaf"></i> Sustentabilidade</p>
+  <h2>Sustentabilidade da Melhoria</h2>
+  <div class="content">
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-arrows-rotate" style="color:var(--primary-color);"></i> &nbsp;Manutenção da <strong>coerência entre prescrição e registo clínico</strong></p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-magnifying-glass-minus" style="color:var(--primary-color);"></i> &nbsp;<strong>Redução de omissões de diagnóstico</strong> em utentes com prescrição de inaladores</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-scale-balanced" style="color:var(--primary-color);"></i> &nbsp;<strong>Uniformização de critérios</strong> de codificação na equipa médica</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><i class="fa-solid fa-calendar-check" style="color:var(--primary-color);"></i> &nbsp;<strong>Revisão periódica</strong> dos utentes não cumpridores do Indicador 380</p></div>
+    <div class="info-card"><p><i class="fa-solid fa-book-open" style="color:var(--primary-color);"></i> &nbsp;Utilização dos <strong>exemplos práticos</strong> do protocolo como ferramenta interna de apoio</p></div>
+    <div class="alert-box" style="margin-top:10px;"><p><i class="fa-solid fa-circle-exclamation"></i> &nbsp;A sustentabilidade não pode ser afirmada sem dados que a suportem. A análise deverá ser atualizada após inserção dos resultados.</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 35 – PRÓXIMOS PASSOS ===== -->
+<section id="s35">
+  <p class="section-label"><i class="fa-solid fa-forward"></i> Próximos Passos</p>
+  <h2>Próximos Passos</h2>
+  <div class="content">
+    <div class="info-card" style="margin-bottom:8px;"><p><span class="badge badge-amber" style="margin-right:8px;">1</span> Manter <strong>monitorização periódica</strong> do Indicador 380</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><span class="badge badge-amber" style="margin-right:8px;">2</span> Rever casos <strong>não cumpridores</strong> identificados</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><span class="badge badge-amber" style="margin-right:8px;">3</span> Reforçar <strong>uniformização da codificação</strong> na equipa médica</p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><span class="badge badge-amber" style="margin-right:8px;">4</span> Sinalizar casos sem elementos clínicos suficientes para <strong>avaliação presencial</strong></p></div>
+    <div class="info-card" style="margin-bottom:8px;"><p><span class="badge badge-amber" style="margin-right:8px;">5</span> Utilizar os <strong>exemplos práticos do protocolo</strong> como apoio à decisão clínica</p></div>
+    <div class="info-card"><p><span class="badge badge-amber" style="margin-right:8px;">6</span> Preparar <strong>nova reavaliação</strong> se aplicável, com base na evolução do indicador</p></div>
+  </div>
+</section>
+
+<!-- ===== SLIDE 36 – CONCLUSÃO ===== -->
+<section id="s36">
+  <p class="section-label"><i class="fa-solid fa-flag-checkered"></i> Conclusão</p>
+  <h2>Conclusão</h2>
+  <div class="content" style="justify-content:center;">
+    <div style="background:var(--card-bg); border-left:6px solid var(--primary-color); border-radius:0 10px 10px 0; padding:20px 28px; margin:12px 0;">
+      <p class="text-lg" style="margin:0; color:var(--primary-color); font-style:normal;">A iniciativa <strong>"Respirar Qualidade"</strong> pretende promover uma melhoria <strong>ética, eficiente e sustentável</strong> do desempenho da unidade, assegurando que os registos clínicos refletem a realidade assistencial e promovem a qualidade do cuidado.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px;">
+      <div class="info-card" style="text-align:center; padding:14px;">
+        <p style="font-size:22pt; margin:0;">📋</p>
+        <p style="font-size:11pt; margin:6px 0 0; font-weight:600;">Registo fiel à realidade</p>
+      </div>
+      <div class="info-card" style="text-align:center; padding:14px;">
+        <p style="font-size:22pt; margin:0;">🤝</p>
+        <p style="font-size:11pt; margin:6px 0 0; font-weight:600;">Equipa envolvida</p>
+      </div>
+      <div class="info-card" style="text-align:center; padding:14px;">
+        <p style="font-size:22pt; margin:0;">🏥</p>
+        <p style="font-size:11pt; margin:6px 0 0; font-weight:600;">Qualidade do cuidado</p>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:14px; text-align:center;">
+      <p style="font-size:12pt; margin:0; font-weight:600; color:#1A5F7A;">USF Serra da Lousã | Daniela Macedo Gomes &amp; Sofia Eiras | Maio 2026</p>
+    </div>
+  </div>
+</section>
+
+</div><!-- /slides -->
+</div><!-- /reveal -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+
+<script>
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  slideNumber: 'c/t',
+  hash: true,
+  transition: 'slide',
+  center: false,
+  width: 1280,
+  height: 720,
+  margin: 0.04,
+  plugins: [ RevealNotes, RevealChart ]
+});
+</script>
+</body>
+</html>
