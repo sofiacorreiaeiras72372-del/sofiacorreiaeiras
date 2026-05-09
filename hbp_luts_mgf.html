@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBP/LUTS — Perspetiva da MGF</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap');
+
+  :root {
+    --bg:        #0d1b2a;
+    --bg2:       #112236;
+    --navy:      #1a3350;
+    --mid:       #1e4d7b;
+    --accent:    #c9a84c;
+    --accent2:   #e8c76a;
+    --text:      #e8edf2;
+    --muted:     #8fa8c0;
+    --red:       #e05a5a;
+    --green:     #4caf80;
+    --teal:      #3ab8c8;
+  }
+
+  .reveal-viewport { background: var(--bg); }
+  .reveal { font-family: 'Inter', Helvetica, sans-serif; color: var(--text); }
+
+  .reveal .slides section {
+    text-align: left;
+    padding: 36px 52px 28px 52px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ── Headings ── */
+  .reveal h1, .reveal h2, .reveal h3 {
+    font-family: 'Merriweather', Georgia, serif;
+    text-transform: none;
+    color: var(--accent);
+    margin-bottom: 0.4em;
+    line-height: 1.2;
+  }
+  .reveal h1 { font-size: 34pt; }
+  .reveal h2 { font-size: 22pt; border-bottom: 2px solid var(--mid); padding-bottom: 6px; margin-bottom: 16px; }
+  .reveal h3 { font-size: 15pt; color: var(--teal); margin-bottom: 8px; }
+
+  /* ── Body text ── */
+  .reveal p, .reveal li { font-size: 13pt; line-height: 1.55; color: var(--text); }
+  .reveal ul { margin: 0 0 0 1.1em; padding: 0; }
+  .reveal ul li { margin-bottom: 7px; }
+  .reveal strong { color: var(--accent2); font-weight: 600; }
+  .reveal em { color: var(--teal); font-style: normal; font-weight: 600; }
+
+  /* ── Title slide ── */
+  .title-slide { background: linear-gradient(145deg, #0d1b2a 60%, #1a3350 100%); text-align: center !important; display: flex !important; flex-direction: column; justify-content: center; align-items: center; }
+  .title-slide h1 { font-size: 38pt; color: var(--accent); text-align: center; margin-bottom: 12px; }
+  .title-slide .subtitle { font-size: 14pt; color: var(--muted); text-align: center; margin-bottom: 30px; }
+  .title-slide .question-box { background: var(--mid); border-left: 4px solid var(--accent); padding: 14px 22px; border-radius: 6px; max-width: 680px; text-align: left; }
+  .title-slide .question-box p { font-size: 13pt; color: var(--text); margin: 0; }
+  .title-slide .meta { margin-top: 28px; font-size: 11pt; color: var(--muted); text-align: center; }
+
+  /* ── Divider slides ── */
+  .divider { background: linear-gradient(135deg, #112236, #1e4d7b) !important; text-align: center !important; display: flex !important; flex-direction: column; justify-content: center; align-items: center; }
+  .divider h2 { font-size: 30pt; border: none; color: var(--accent); text-align: center; }
+  .divider p { font-size: 14pt; color: var(--muted); text-align: center; }
+
+  /* ── Cards / containers ── */
+  .card { background: var(--navy); border-radius: 8px; padding: 14px 18px; margin-bottom: 10px; }
+  .card-accent { background: var(--mid); border-left: 4px solid var(--accent); border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; }
+  .card p, .card li, .card-accent p, .card-accent li { font-size: 12pt; color: var(--text); margin-bottom: 4px; }
+  .card h3, .card-accent h3 { margin-bottom: 6px; font-size: 13pt; }
+
+  /* ── Grid layouts ── */
+  .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .cols-13 { display: grid; grid-template-columns: 1fr 3fr; gap: 16px; }
+
+  /* ── SOAP layout ── */
+  .soap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .soap-box { border-radius: 6px; padding: 10px 14px; }
+  .soap-box .label { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; }
+  .soap-box p, .soap-box li { font-size: 11pt; }
+  .s-box { background: #0e2a42; border-top: 3px solid var(--teal); }
+  .o-box { background: #1a1f0e; border-top: 3px solid var(--green); }
+  .a-box { background: #2a1a0e; border-top: 3px solid var(--accent); }
+  .p-box { background: #2a0e0e; border-top: 3px solid var(--red); }
+  .s-box .label { color: var(--teal); }
+  .o-box .label { color: var(--green); }
+  .a-box .label { color: var(--accent); }
+  .p-box .label { color: var(--red); }
+
+  /* ── Timeline / evolução ── */
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 8px; }
+  .tl-item { background: var(--navy); border-radius: 6px; padding: 10px 12px; border-top: 3px solid var(--mid); }
+  .tl-item .tl-year { font-size: 13pt; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  .tl-item p { font-size: 10pt; color: var(--text); margin: 2px 0; }
+  .tl-item.highlight { border-top-color: var(--accent); background: #1a2a3a; }
+
+  /* ── LUTS diagram ── */
+  .luts-box { border-radius: 8px; padding: 12px 14px; text-align: center; }
+  .luts-box p { font-size: 11pt; margin: 3px 0; }
+  .luts-box .luts-title { font-size: 12pt; font-weight: 700; margin-bottom: 6px; }
+
+  /* ── Tag badges ── */
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 9pt; font-weight: 600; margin: 2px 3px; }
+  .badge-red { background: #4a1a1a; color: var(--red); border: 1px solid var(--red); }
+  .badge-green { background: #0e2a1a; color: var(--green); border: 1px solid var(--green); }
+  .badge-amber { background: #2a2010; color: var(--accent2); border: 1px solid var(--accent2); }
+
+  /* ── Tables ── */
+  .reveal table { width: 100%; border-collapse: collapse; font-size: 11pt; margin-top: 10px; }
+  .reveal table th { background: var(--mid); color: var(--accent2); padding: 8px 10px; text-align: left; font-weight: 600; }
+  .reveal table td { padding: 7px 10px; border-bottom: 1px solid var(--navy); color: var(--text); vertical-align: top; }
+  .reveal table tr:nth-child(even) td { background: #111e2d; }
+
+  /* ── Alert / red flag ── */
+  .alert-box { background: #2a0e0e; border: 1px solid var(--red); border-left: 4px solid var(--red); border-radius: 6px; padding: 10px 14px; margin-bottom: 10px; }
+  .alert-box p, .alert-box li { font-size: 12pt; color: #f0b0b0; }
+
+  /* ── Footnote ── */
+  .footnote { position: absolute; bottom: 14px; left: 52px; right: 52px; font-size: 8.5pt; color: var(--muted); border-top: 1px solid var(--navy); padding-top: 5px; }
+
+  /* ── Key message box ── */
+  .key-msg { background: linear-gradient(135deg, #1a3350, #1e4d7b); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin-bottom: 10px; }
+  .key-msg p { font-size: 12.5pt; color: var(--text); margin: 0; }
+
+  /* ── Icon row ── */
+  .icon-label { text-align: center; padding: 12px 8px; }
+  .icon-label i { font-size: 22pt; color: var(--accent); display: block; margin-bottom: 8px; }
+  .icon-label p { font-size: 10pt; color: var(--muted); margin: 0; text-align: center; }
+
+  /* ── Slide number ── */
+  .reveal .slide-number { color: var(--muted); font-size: 9pt; background: transparent; }
+
+  /* ── Progress bar ── */
+  .reveal .progress { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 1 — TÍTULO
+═══════════════════════════════════════════════════════════ -->
+<section class="title-slide">
+  <h1><i class="fa-solid fa-stethoscope" style="font-size:0.7em; margin-right:12px;"></i>HBP / LUTS</h1>
+  <p class="subtitle">Perspetiva da Medicina Geral e Familiar &nbsp;·&nbsp; Sessão conjunta com Urologia</p>
+  <div class="question-box">
+    <p><i class="fa-solid fa-circle-question" style="color: var(--accent); margin-right: 8px;"></i><strong>Pergunta clínica:</strong> Homem de 78 anos com LUTS persistentes, próstata de 102 cc e PSA 1,44 ng/mL sob finasterida — o que compete ao médico de família fazer, vigiar e quando referenciar?</p>
+  </div>
+  <p class="meta">Duração prevista: 10–12 min &nbsp;·&nbsp; 2026</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 2 — CASO CLÍNICO (RESUMO)
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-user-injured" style="font-size:0.8em; margin-right:8px;"></i>O caso: O.S., 78 anos</h2>
+  <p style="font-size:11pt; color:var(--muted); margin-bottom:12px;">LUTS documentados desde 2023 — fio condutor desta apresentação</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <p class="tl-year">2023</p>
+      <p>Noctúria 4–5×/noite, urgência, jato fraco, hematúria inicial esporádica</p>
+      <p>PSA 3,06 ng/mL</p>
+      <p>Próstata <strong>72 g</strong></p>
+      <p>Alfuzosina (antigo)</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-year">2024</p>
+      <p>Dutasterida + silodosina — <em>não tolerou</em></p>
+      <p>Recusou cirurgia</p>
+      <p>PSA 4,32 ng/mL</p>
+      <p>Próstata <strong>102 cc</strong>, bexiga de esforço</p>
+      <p>Inicia finasterida 5 mg</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-year">2025</p>
+      <p>Mantém LUTS e preocupação com PSA/HBP</p>
+      <p>PSA 1,44 ng/mL <em>sob finasterida</em></p>
+      <p>Noctúria sem melhoria</p>
+    </div>
+    <div class="tl-item highlight">
+      <p class="tl-year">2026 ▲</p>
+      <p>Agravamento noctúria 4–5×/noite</p>
+      <p>Dificuldade início jato (manhã)</p>
+      <p>Prurido nas virilhas → finasterida alterada para dutasterida</p>
+      <p>Nova ecografia pedida</p>
+    </div>
+  </div>
+  <div class="footnote">Alfuzosina mantida em todos os períodos</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 3 — SOAP
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-notes-medical" style="font-size:0.8em; margin-right:8px;"></i>Registo SOAP — Consulta 2026</h2>
+  <div class="soap-grid">
+    <div class="soap-box s-box">
+      <p class="label">S — Subjetivo</p>
+      <ul>
+        <li>Noctúria 4–5×/noite; maior dificuldade a iniciar jato de manhã</li>
+        <li>"Não sinto melhoria com os comprimidos"</li>
+        <li>Prurido nas virilhas (atribui à finasterida)</li>
+        <li>Preocupação com PSA e com o crescimento prostático</li>
+        <li>Mantém recusa de cirurgia</li>
+      </ul>
+    </div>
+    <div class="soap-box o-box">
+      <p class="label">O — Objetivo</p>
+      <ul>
+        <li>IPSS a aplicar nesta consulta</li>
+        <li>PSA mai/2025: 1,44 ng/mL <strong>sob finasterida</strong></li>
+        <li>Ecografia jun/2024: próstata 102 cc, bexiga de esforço</li>
+        <li>Toque retal: a documentar (regularidade, nódulos)</li>
+        <li>Função renal? Urina II atual?</li>
+      </ul>
+    </div>
+    <div class="soap-box a-box">
+      <p class="label">A — Avaliação</p>
+      <ul>
+        <li>LUTS moderados-graves (noctúria + disfunção obstrutiva)</li>
+        <li>HBP com próstata volumosa (&gt;100 cc) confirmada</li>
+        <li>PSA real estimado ~2,9 ng/mL (×2 sob 5-ARI)</li>
+        <li>Efeito adverso cutâneo provável à finasterida</li>
+        <li>Impacto na qualidade de vida significativo</li>
+      </ul>
+    </div>
+    <div class="soap-box p-box">
+      <p class="label">P — Plano</p>
+      <ul>
+        <li>Substituir finasterida por dutasterida</li>
+        <li>Pedir ecografia renovesicoprostática + RPM</li>
+        <li>Diário miccional: excluir poliúria noturna</li>
+        <li>Reavaliação em 3–6 meses; critérios de referenciação presentes?</li>
+        <li>Decisão partilhada sobre seguimento em Urologia</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 4 — LUTS ≠ HBP
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-circle-exclamation" style="font-size:0.8em; margin-right:8px;"></i>LUTS ≠ HBP — classificação dos sintomas</h2>
+  <div class="cols-2" style="margin-bottom: 12px;">
+    <div>
+      <div class="cols-3" style="gap:8px; margin-bottom:10px;">
+        <div class="luts-box" style="background:#0e2a42; border-top: 3px solid var(--teal);">
+          <p class="luts-title" style="color:var(--teal);">Armazenamento</p>
+          <p>Frequência diurna</p>
+          <p>Noctúria</p>
+          <p>Urgência</p>
+          <p>Incontinência urgência</p>
+        </div>
+        <div class="luts-box" style="background:#1a2a0e; border-top: 3px solid var(--green);">
+          <p class="luts-title" style="color:var(--green);">Esvaziamento</p>
+          <p>Hesitação</p>
+          <p>Jato fraco/intermitente</p>
+          <p>Esforço miccional</p>
+          <p>Gotejamento terminal</p>
+        </div>
+        <div class="luts-box" style="background:#2a1a0e; border-top: 3px solid var(--accent);">
+          <p class="luts-title" style="color:var(--accent);">Pós-miccional</p>
+          <p>Sensação esvaziamento incompleto</p>
+          <p>Gotejamento pós-miccional</p>
+        </div>
+      </div>
+      <div class="card-accent">
+        <p><strong>LUTS</strong> = sintoma clínico &nbsp;|&nbsp; <strong>HBP</strong> = diagnóstico anatomopatológico</p>
+        <p style="font-size:11pt; margin-top:4px; color:var(--muted);">Outros: estenose uretral, bexiga hiperativa, neurológico, infecioso, fármacos, neoplasia</p>
+      </div>
+    </div>
+    <div>
+      <h3><i class="fa-solid fa-moon" style="margin-right:6px;"></i>Noctúria — não assuma HBP</h3>
+      <div class="card">
+        <ul>
+          <li><strong>Poliúria noturna</strong> — insuf. cardíaca, diabetes, AOS, diuréticos ao fim do dia</li>
+          <li><strong>Capacidade vesical reduzida</strong> — bexiga de esforço, instabilidade do detrusor</li>
+          <li><strong>Distúrbio do sono</strong> — insónia, apneia do sono</li>
+          <li><strong>Ingestão hídrica</strong> — cafeína, álcool, líquidos ao jantar</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:8px; border-left: 3px solid var(--accent);">
+        <p style="font-size:11pt;"><i class="fa-solid fa-clipboard-list" style="color:var(--accent); margin-right:6px;"></i>No caso O.S.: noctúria persistente apesar de alfuzosina + finasterida → <strong>pedir diário miccional de 3 dias</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="footnote">EAU Guidelines Male LUTS 2024 — Classification of LUTS</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 5 — EPIDEMIOLOGIA
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-chart-bar" style="font-size:0.8em; margin-right:8px;"></i>Epidemiologia e carga da doença</h2>
+  <div class="cols-2">
+    <div>
+      <div class="card-accent">
+        <h3 style="color:var(--accent);">Prevalência global</h3>
+        <ul>
+          <li>LUTS moderados-graves em ~30% dos homens &gt;65 anos</li>
+          <li>HBP histológica &gt;50% aos 60 anos; &gt;90% aos 85 anos</li>
+          <li>Prevalência aumenta linearmente com a idade</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:10px;">
+        <h3><i class="fa-solid fa-flag" style="margin-right:6px; color:var(--teal);"></i>Portugal — nota metodológica</h3>
+        <p style="font-size:11.5pt;">Não existem dados de incidência nacional de HBP/LUTS para 2026. Estudos europeus de prevalência (ex. EpiLUTS) incluem amostra ibérica e são usados como aproximação. <strong>Evitar extrapolações sem fonte.</strong></p>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3><i class="fa-solid fa-hospital" style="margin-right:6px; color:var(--teal);"></i>Impacto clínico</h3>
+        <ul>
+          <li>LUTS associados a <strong>menor qualidade de vida</strong>, distúrbios do sono e depressão</li>
+          <li>Complicações: retenção urinária aguda, infeção urinária recorrente, litíase vesical, insuficiência renal obstrutiva</li>
+          <li>Risco de retenção urinária aumenta com próstata &gt;30 cc e PSA &gt;1,4 ng/mL</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:10px; border-left: 3px solid var(--accent);">
+        <p style="font-size:11pt;"><i class="fa-solid fa-user-clock" style="color:var(--accent); margin-right:6px;"></i>O.S., 78 anos: próstata 102 cc, LUTS há &gt;3 anos, bexiga de esforço — representa o doente típico de elevada carga em MGF</p>
+      </div>
+    </div>
+  </div>
+  <div class="footnote">EAU Male LUTS Guidelines 2024 · EpiLUTS Study (Irwin et al., 2006)</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 6 — DIAGNÓSTICO EM MGF
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-magnifying-glass-plus" style="font-size:0.8em; margin-right:8px;"></i>Diagnóstico em MGF</h2>
+  <div class="cols-2">
+    <div>
+      <div class="card-accent">
+        <h3>História clínica dirigida</h3>
+        <ul>
+          <li>Início, duração, progressão dos LUTS</li>
+          <li>Fármacos (anticolinérgicos, diuréticos, alfa-bloqueantes)</li>
+          <li>Comorbilidades: DM, IC, DRC, AOS, neurológico</li>
+          <li>Hematúria, infeções urinárias recorrentes</li>
+          <li>Impacto na qualidade de vida <em>(pergunta obrigatória)</em></li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:10px;">
+        <h3><i class="fa-solid fa-list-ol" style="margin-right:6px;"></i>Instrumentos validados</h3>
+        <ul>
+          <li><strong>IPSS</strong> — 7 questões + QoL (0–5); &gt;7: moderado; &gt;19: grave</li>
+          <li><strong>Diário miccional 3 dias</strong> — volume, frequência, noctúria, IU</li>
+          <li>Escala QoL IPSS (1 item) suficiente para orientar urgência de referenciação</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3><i class="fa-solid fa-hand-dots" style="margin-right:6px;"></i>Exame físico</h3>
+        <ul>
+          <li><strong>Toque retal (TR)</strong> — estima volume, deteção de nódulos, assimetria</li>
+          <li>Exame abdominal: bexiga globosa?</li>
+          <li>Sinais neurológicos, edemas periféricos</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:10px; border-left:3px solid var(--teal);">
+        <p style="font-size:11pt;"><i class="fa-solid fa-user-check" style="color:var(--teal); margin-right:6px;"></i>No caso O.S.: IPSS documentado? TR descrito? Diário miccional para noctúria? — se não, esta consulta é o momento.</p>
+      </div>
+      <div class="card" style="margin-top:8px; background:#1a1f0e;">
+        <p style="font-size:10.5pt; color:var(--muted);"><i class="fa-solid fa-triangle-exclamation" style="color:var(--accent); margin-right:5px;"></i>TR não substitui PSA, nem PSA substitui TR. São complementares.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footnote">EAU Male LUTS Guidelines 2024 — Diagnosis</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 7 — MCDTs
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-flask" style="font-size:0.8em; margin-right:8px;"></i>MCDTs úteis — o que pedir e porquê</h2>
+  <div class="cols-2">
+    <div>
+      <table>
+        <thead>
+          <tr><th>Exame</th><th>Objetivo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Urina II + sedimento</strong></td><td>Excluir hematúria, infeção, glucosúria</td></tr>
+          <tr><td><strong>PSA</strong></td><td>Ver slide 8</td></tr>
+          <tr><td><strong>Creatinina / TFGe</strong></td><td>Uropatia obstrutiva, DRC prévia</td></tr>
+          <tr><td><strong>Glicemia</strong></td><td>DM como causa de poliúria/noctúria</td></tr>
+          <tr><td><strong>Eco renovesico-prostática</strong></td><td>Volume prostático, RPM, dilatação pielocalicial</td></tr>
+          <tr><td><strong>Resíduo pós-miccional (RPM)</strong></td><td>&gt;300 mL = critério de referenciação</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="card-accent">
+        <h3>No caso O.S. — aplicação prática</h3>
+        <ul>
+          <li>Urina II e função renal: atualizados? — confirmar</li>
+          <li>Nova ecografia pedida em 2026: <strong>incluir RPM</strong></li>
+          <li>Próstata 102 cc → confirmar crescimento desde jun/2024</li>
+          <li>Bexiga de esforço documentada → relevante para decisão terapêutica</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:10px; background:#2a0e0e; border-left:3px solid var(--red);">
+        <p style="font-size:11pt; color:#f0b0b0;"><i class="fa-solid fa-triangle-exclamation" style="margin-right:6px;"></i><strong>Hematúria:</strong> nos 3 anos de seguimento há referência a hematúria inicial esporádica em 2023. Investigada? Cistoscopia realizada?</p>
+      </div>
+      <div class="card" style="margin-top:8px;">
+        <p style="font-size:10.5pt; color:var(--muted);">Urofluxometria e urodinâmica: complementares — indicação pelo urologista.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footnote">EAU Male LUTS Guidelines 2024 — Diagnostic workup</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 8 — PSA
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-vial" style="font-size:0.8em; margin-right:8px;"></i>PSA — quando pedir, como interpretar</h2>
+  <div class="cols-2">
+    <div>
+      <div class="card-accent">
+        <h3>Princípio orientador (EAU + DGS)</h3>
+        <p style="font-size:11.5pt;">Pedir PSA <strong>se o resultado for capaz de alterar a estratégia clínica ou terapêutica</strong>, ou se o diagnóstico de cancro da próstata for capaz de alterar a abordagem — e após <em>decisão informada e partilhada</em>.</p>
+        <p style="font-size:10.5pt; color:var(--muted); margin-top:6px;"><i class="fa-solid fa-flag" style="margin-right:5px;"></i>Em Portugal <strong>não existe rastreio populacional organizado</strong> por PSA. A decisão é individual.</p>
+      </div>
+      <div class="card" style="margin-top:10px;">
+        <h3><i class="fa-solid fa-scale-balanced" style="margin-right:6px;"></i>Pedir / Não pedir</h3>
+        <ul>
+          <li><span class="badge badge-green">✓ Pedir</span> Esperança de vida &gt;10 anos, LUTS novos/agravados, hematúria, TR suspeito</li>
+          <li><span class="badge badge-green">✓ Pedir</span> Monitorizar resposta a 5-ARI</li>
+          <li><span class="badge badge-red">✗ Não pedir</span> Sem intenção de agir sobre o resultado, esperança de vida limitada sem impacto no plano</li>
+          <li><span class="badge badge-amber">↻ Repetir</span> Resultado elevado, suspeita de infeção, variação &gt;25% sem causa</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="background:#1a2a3a; border: 1px solid var(--accent);">
+        <h3 style="color:var(--accent2);"><i class="fa-solid fa-pills" style="margin-right:6px;"></i>Efeito dos inibidores da 5-alfa-redutase (5-ARI)</h3>
+        <ul>
+          <li>Finasterida e dutasterida <strong>reduzem PSA ~50%</strong> ao fim de 6 meses</li>
+          <li>Para interpretar PSA sob 5-ARI: <strong>multiplicar por 2</strong></li>
+          <li>Se não houver redução de ~50% ao fim de 6–12 meses → risco de cancro</li>
+        </ul>
+      </div>
+      <div class="card-accent" style="margin-top:10px;">
+        <h3>No caso O.S.</h3>
+        <ul>
+          <li>PSA jun/2024: 4,32 ng/mL (sem 5-ARI)</li>
+          <li>PSA mai/2025: 1,44 ng/mL (sob finasterida ~6–12 meses)</li>
+          <li>PSA corrigido estimado: <strong>~2,9 ng/mL</strong> — não houve subida, há queda coerente</li>
+          <li>Contudo: monitorizar após troca para dutasterida + nova baseline</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footnote">EAU Prostate Cancer Guidelines 2024 · EAU Male LUTS 2024 · Norma DGS 006/2016 (PSA)</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 9 — RED FLAGS / REFERENCIAÇÃO
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-triangle-exclamation" style="font-size:0.8em; margin-right:8px;"></i>Red flags e critérios de referenciação</h2>
+  <div class="cols-2">
+    <div>
+      <div class="alert-box">
+        <h3 style="color:var(--red); margin-bottom:8px;"><i class="fa-solid fa-circle-exclamation" style="margin-right:6px;"></i>Referenciar (urgente/prioritário)</h3>
+        <ul>
+          <li>Retenção urinária aguda ou RPM &gt;300 mL</li>
+          <li>Hematúria macroscópica não explicada</li>
+          <li>Função renal alterada de causa obstrutiva</li>
+          <li>Litíase vesical / hidronefrose</li>
+          <li>TR suspeito (nódulo, induração, assimetria)</li>
+          <li>PSA em subida persistente sem causa explicável</li>
+          <li>Falência de 2ª linha terapêutica (como no nosso caso)</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="card-accent">
+        <h3>No caso O.S. — critérios presentes</h3>
+        <ul>
+          <li><strong>Próstata &gt;100 cc</strong> — volume que supera resposta típica a monoterapia</li>
+          <li><strong>Bexiga de esforço</strong> documentada em ecografia</li>
+          <li><strong>Intolerância a 2 regimes</strong> terapêuticos</li>
+          <li><strong>Sintomas persistentes &gt;3 anos</strong> com impacto significativo na QoL</li>
+          <li>Hematúria esporádica em 2023 — investigação completa?</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:10px; background:#1a1f0e;">
+        <h3><i class="fa-solid fa-handshake" style="margin-right:6px; color:var(--green);"></i>Recusa cirúrgica — respeitar e enquadrar</h3>
+        <p style="font-size:11pt;">A autonomia do doente é prioritária. A MGF acompanha a evolução e <strong>mantém a decisão partilhada ativa</strong>: reavaliação periódica, IPSS, RPM, função renal. Alternativas minimamente invasivas (a discutir pelo urologista).</p>
+      </div>
+    </div>
+  </div>
+  <div class="footnote">EAU Male LUTS Guidelines 2024 — Referral criteria</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 10 — MENSAGENS-CHAVE + TABELAS
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-check-double" style="font-size:0.8em; margin-right:8px;"></i>Mensagens-chave para MGF</h2>
+  <div class="cols-2">
+    <div>
+      <div class="key-msg"><p><i class="fa-solid fa-1" style="color:var(--accent); margin-right:8px;"></i>LUTS não é sinónimo de HBP — a noctúria tem muitas causas. <strong>Diário miccional é uma ferramenta barata e poderosa.</strong></p></div>
+      <div class="key-msg"><p><i class="fa-solid fa-2" style="color:var(--accent); margin-right:8px;"></i>PSA só tem sentido se o resultado puder <strong>alterar a estratégia</strong>. Decisão informada e individualizada; sem rastreio populacional em Portugal.</p></div>
+      <div class="key-msg"><p><i class="fa-solid fa-3" style="color:var(--accent); margin-right:8px;"></i>Sob 5-ARI (finasterida/dutasterida), <strong>multiplicar PSA por 2</strong> para estimar valor real. Ausência de queda de 50% é sinal de alerta.</p></div>
+      <div class="key-msg"><p><i class="fa-solid fa-4" style="color:var(--accent); margin-right:8px;"></i>Próstata &gt;100 cc + bexiga de esforço + LUTS persistentes = reavaliação em Urologia, independentemente da recusa cirúrgica.</p></div>
+      <div class="key-msg"><p><i class="fa-solid fa-5" style="color:var(--accent); margin-right:8px;"></i>Respeitar a autonomia do doente; manter <strong>decisão partilhada ativa</strong> e reavaliação periódica.</p></div>
+    </div>
+    <div>
+      <table>
+        <thead><tr><th colspan="2">MGF vs Urologia — divisão de papéis</th></tr></thead>
+        <tbody>
+          <tr><td><strong>MGF</strong></td><td>IPSS, diário miccional, TR, PSA informado, MCDTs de 1.ª linha, ajuste terapêutico, reavaliação, suporte ao doente</td></tr>
+          <tr><td><strong>Urologia</strong></td><td>Urofluxometria, urodinâmica, decisão cirúrgica/minimamente invasiva, cistoscopia, biópsia prostática, hematúria não explicada</td></tr>
+        </tbody>
+      </table>
+      <table style="margin-top:12px;">
+        <thead><tr><th colspan="2">PSA — decisão rápida</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge badge-green">Pedir</span></td><td>LUTS novos/agravados, TR suspeito, hematúria, esperança de vida &gt;10 anos, monitorização de 5-ARI</td></tr>
+          <tr><td><span class="badge badge-red">Não pedir</span></td><td>Sem intenção de agir, esperança de vida muito limitada, doente não pretende fazer rastreio após informação</td></tr>
+          <tr><td><span class="badge badge-amber">Repetir</span></td><td>PSA elevado/suspeito, suspeita de viés (infeção, manipulação), variação &gt;25%</td></tr>
+          <tr><td><span class="badge" style="background:#1a1f2e; color:var(--teal); border:1px solid var(--teal);">Referenciar</span></td><td>PSA em subida, TR suspeito, PSA corrigido ≥4 sem explicação; considerar &gt;3 com fatores de risco</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 11 — BIBLIOGRAFIA
+═══════════════════════════════════════════════════════════ -->
+<section>
+  <h2><i class="fa-solid fa-book" style="font-size:0.8em; margin-right:8px;"></i>Bibliografia essencial</h2>
+  <div class="cols-2" style="align-items: start;">
+    <div>
+      <div class="card">
+        <ol style="margin-left:1.2em; padding:0;">
+          <li style="margin-bottom:12px;"><p><strong>EAU Guidelines: Male Lower Urinary Tract Symptoms (LUTS), incl. Benign Prostatic Obstruction.</strong> EAU 2024. <em style="color:var(--muted);">Diagnóstico, classificação, tratamento, critérios de referenciação.</em></p></li>
+          <li style="margin-bottom:12px;"><p><strong>EAU Guidelines: Prostate Cancer.</strong> EAU 2024. <em style="color:var(--muted);">PSA: rastreio, interpretação, detecção precoce.</em></p></li>
+          <li style="margin-bottom:12px;"><p><strong>Norma DGS 006/2016.</strong> Diagnóstico e Terapêutica da Hiperplasia Benigna da Próstata. DGS Portugal. <em style="color:var(--muted);">Contexto nacional, PSA, referenciação.</em></p></li>
+        </ol>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <ol start="4" style="margin-left:1.2em; padding:0;">
+          <li style="margin-bottom:12px;"><p><strong>Irwin DE et al.</strong> Population-based survey of urinary incontinence, overactive bladder, and other lower urinary tract symptoms in five countries: results of the EPIC study. <em>Eur Urol</em> 2006;50(6):1306–15. <em style="color:var(--muted);">Epidemiologia LUTS na Europa.</em></p></li>
+          <li style="margin-bottom:12px;"><p><strong>Irwin DE et al.</strong> Worldwide prevalence estimates of lower urinary tract symptoms, overactive bladder, urinary incontinence and bladder outlet obstruction (EpiLUTS). <em>BJU Int</em> 2011;108(7):1132–8. <em style="color:var(--muted);">Prevalência europeia/ibérica.</em></p></li>
+        </ol>
+      </div>
+      <div class="card" style="margin-top:10px; background:#1a1f0e;">
+        <p style="font-size:10pt; color:var(--muted);"><i class="fa-solid fa-circle-info" style="margin-right:5px;"></i>Dados de incidência nacional de HBP/LUTS para Portugal em 2026 não estão disponíveis em fontes abertas. Os dados epidemiológicos citados referem-se a estudos europeus validados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    slideNumber: 'c/t',
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'fast',
+    center: false,
+    width: 1280,
+    height: 720,
+    margin: 0.04,
+  });
+</script>
+</body>
+</html>
